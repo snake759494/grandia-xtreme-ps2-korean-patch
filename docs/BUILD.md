@@ -23,4 +23,5 @@ python tools/build.py       # → "Grandia Xtreme (Japan, Asia) (Korean).iso"
 - `translation/pub/mdt_00~25.tsv`: 대사, `sys_00~03.tsv`: 아이템·마법·스킬·메뉴 등 시스템 문자열, `desc_groups.tsv`: 4줄 설명 묶음, `enemy.tsv`: 적 이름·적 기술 이름 (모두 `ID	원문 SHA-1 앞 16자리	번역`)
 - `translation/charmap_jp.txt`: 원본 글꼴의 글리프 순서
 - `tools/build.py`: 전체 빌드. `mdtbuild.py`·`msg.py`·`vm.py` 대사 스크립트, `sysbuild.py`·`sysgroups.py`·`menu_ko.py` GRXSYS, `bintext.py` 전투, `enemy.py` 적 이름, `code16.py` 미니게임, `ko.py`·`mkfont.py` 글꼴, `tex*.py` 그림 글자, `lz.py`·`lzfast.py` 압축, `isofs.py`·`ext.py` 디스크
+- `SLPM-65089_958A6461.pnach`: 16:9 와이드 패치
 - `tools/prepare.py`·`jppool.py`·`export_public.py`: 원문 없이 재빌드하기 위한 스크립트
