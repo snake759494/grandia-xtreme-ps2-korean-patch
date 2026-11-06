@@ -13,5 +13,10 @@
  "output_iso_size": 2413940736,
  "output_iso_md5": "98becb900e65936e12e9e01693f2130e",
  "output_iso_sha1": "c4ad30d52cd977e8ca0532d5aa7d73ce0086fd27",
- "output_iso_sha256": "b8e4974b120a16762b17f83cc4988a10bcd3ccf10fd0e6f52ba7f682760ac8a1"
+ "output_iso_sha256": "b8e4974b120a16762b17f83cc4988a10bcd3ccf10fd0e6f52ba7f682760ac8a1",
+ "widescreen_asset": "SLPM-65089_958A6461.pnach",
+ "widescreen_size": 216,
+ "widescreen_sha256": "c47d173d7964d7968dcdae44e8938e024b5362807b575be1daa0b6e11a0a57b6",
+ "source_elf_crc": "958A6461",
+ "output_elf_crc": "958A6461"
 }
