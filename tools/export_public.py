@@ -7,7 +7,7 @@ H=lambda t: hashlib.sha1(t.encode('utf-8')).hexdigest()[:16]
 JP=re.compile('[\u3040-\u30ff\u4e00-\u9fff]'); KO=re.compile('[\uac00-\ud7a3]')
 TOOLS=['bintext','build','check_tr','code16','decall','enemy','ext','ext_mdt','ext_sys','gxtext','isofs','jppool','ko','lm','lz',
        'lzfast','mdtbuild','menu_ko','mkfont','msg','strscan','sysbuild','sysgroups','tex','texapply','texjobs','texpaint','u16scan','vm',
-       'prepare','export_public']
+       'prepare','export_public','elftext']
 def pub(dst):
     os.makedirs(os.path.join(dst,'translation','pub'),exist_ok=True)
     for f in sorted(glob.glob(os.path.join(ROOT,'translation','ko','*.tsv'))):

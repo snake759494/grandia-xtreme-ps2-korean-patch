@@ -6,7 +6,7 @@ ALLOWED=set(' \u3000\u203c\u2049\uff01\uff1f\uff5e\u2026\u30fc\u30fb\u2665\uff1a
 def width(s):
     w=0
     for ch in s:
-        w+=0.5 if ch in ' 　' else 1
+        w+=1  # dialogue window is fixed-pitch: a space takes a full cell
     return w
 def load(p):
     d={}

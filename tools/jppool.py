@@ -13,7 +13,7 @@ def build():
         if not t: return
         S.add(t)
         for p in SPLIT.split(t): S.add(p)
-    byte_files=[os.path.join(ROOT,'dec','SYS','GRXSYS.PAC'),os.path.join(ROOT,'extract','BATTLE.BIN')]
+    byte_files=[os.path.join(ROOT,'dec','SYS','GRXSYS.PAC'),os.path.join(ROOT,'extract','BATTLE.BIN'),os.path.join(ROOT,'extract','SLPM_650.89')]
     for f in byte_files:
         b=open(f,'rb').read(); i=0
         for chunk in b.split(b'\0'):

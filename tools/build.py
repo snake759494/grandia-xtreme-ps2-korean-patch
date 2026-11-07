@@ -5,14 +5,14 @@ from sysbuild import NAMES
 from gxtext import encode_jp
 from mdtbuild import rebuild_mdt
 from sysbuild import rebuild,speakers,SPEAKERS,menu49,GTR
-import menu_ko,texapply,code16,enemy
+import menu_ko,texapply,code16,enemy,elftext
 ROOT=os.path.join(os.path.dirname(os.path.abspath(__file__)),'..')
 SRC=os.path.join(ROOT,'Grandia Xtreme (Japan, Asia).iso')
 DST=os.path.join(ROOT,'Grandia Xtreme (Japan, Asia) (Korean).iso')
 def main():
     t0=time.time()
     tr=ko.load_tr()
-    gmap=ko.build_map(list(tr.values())+bintext.texts()+list(NAMES.values())+SPEAKERS+list(menu_ko.M.values())+[k for _,k in menu_ko.EXTRA.values()]+code16.texts()+[x for v in GTR.values() for x in v.split('|')]+enemy.texts()*40); enc=ko.encoder(gmap)
+    gmap=ko.build_map(list(tr.values())+bintext.texts()+list(NAMES.values())+SPEAKERS+list(menu_ko.M.values())+[k for _,k in menu_ko.EXTRA.values()]+code16.texts()+[x for v in GTR.values() for x in v.split('|')]+enemy.texts()*40+elftext.texts()*10); enc=ko.encoder(gmap)
     with open(os.path.join(ROOT,'translation','charmap_ko.tsv'),'w',encoding='utf8') as o:
         for g in sorted(gmap): o.write('%d\t%s\n'%(g,gmap[g]))
     print('chars',sum(1 for c in gmap.values() if '가'<=c<='힣'))
@@ -47,6 +47,8 @@ def main():
     files['/SYS/GRXSYS.PAC']=lzfast.compress(nd,struct.unpack_from('<I',raw)[0])
     bb,log=bintext.patch(open(os.path.join(ROOT,'extract/BATTLE.BIN'),'rb').read(),enc,encode_jp)
     print('battle',log); files['/BATTLE.BIN']=bb
+    eb,log=elftext.patch(open(os.path.join(ROOT,'extract',elftext.ELF),'rb').read(),enc)
+    print('elf',log); files['/'+elftext.ELF]=eb
     for f in sorted(glob.glob(os.path.join(ROOT,'extract/BTL_DATA/*'))):
         n=os.path.basename(f); b0=open(f,'rb').read(); b1,k=texapply.apply(n,b0,TN,TP)
         if k: files['/BTL_DATA/'+n]=b1
